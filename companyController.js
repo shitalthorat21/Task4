@@ -25,8 +25,7 @@ exports.updateCompany=(req,res,next)=>{
     Company.findOneAndUpdate({companyName:req.params.companyName},{
         $set:{
            companyName:req.body.companyName,
-           email:req.body.email
-        }},
+             }},
         (err,results)=>{
           if(!err){
                   res.json('Company Updated');
