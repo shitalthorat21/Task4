@@ -17,6 +17,7 @@ mongoose.connect('mongodb://localhost:27017/qliktagInterns1',  { useNewUrlParser
 
 require('dotenv').config({ path: '.env' });
 require('./models/Company');
+require('./models/User');
 
 const app = require('./app');
 const server = app.listen(8008, () => {

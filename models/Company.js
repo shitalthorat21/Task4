@@ -6,7 +6,7 @@ let companySchema=new Schema({
     companyName:{
         type:String,
         trim:true},
-    email:{
+        emailId:{
         type:String,
           }        
 });
