@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 const router = express.Router();
 const companyController=require('./companyController');
 const Company=mongoose.model('Company');
-const {catchErrors}=require('./errorHandlers');.
+const {catchErrors}=require('./errorHandlers');
 const User=mongoose.model('User');
 
 
