@@ -11,6 +11,7 @@ router.get('/', companyController.homePage);
 router.get('/company', companyController.addCompany);
 router.post('/company', catchErrors(companyController.createCompany));
 router.put('/company/:companyName',companyController.updateCompany);
+router.get('/company/:companyName',catchErrors(companyController.getCompany));
 router.delete('/company/:companyName',companyController.deleteCompany);
 
 
