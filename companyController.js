@@ -16,9 +16,9 @@ exports.addCompany=(req,res,next)=>{
 
 //Adding company in database
 exports.createCompany=async(req,res)=>{ 
-    let user=await User.findOne({emailId:req.body.emailId}); 
-    let emailIsPresent=await Company.findOne({emailId:req.body.emailId});
-    let companyIsPresent=await Company.findOne({companyName:req.body.companyName});
+    const user=await User.findOne({emailId:req.body.emailId}); 
+    const emailIsPresent=await Company.findOne({emailId:req.body.emailId});
+    const companyIsPresent=await Company.findOne({companyName:req.body.companyName});
     if(!companyIsPresent)
     {
         if(!emailIsPresent)
@@ -68,10 +68,18 @@ exports.updateCompany=(req,res,next)=>{
           }
     )};
 
+
+
+
 //Deleting the company by company name    
 exports.deleteCompany=(req,res,next)=>
 {
-    Company.remove({companyName:req.params.companyName},(err,doc)=>{
+    const getcompany=Company.find((req.body));
+    const companyPresent=Company.findOne({companyName:req.body.companyName});
+    const user=User.findOne({emailId:req.body.emailId}); 
+    
+
+        Company.remove({companyName:req.params.companyName},(err,doc)=>{
         if(!err){
             res.json("Company deleted");
         }
@@ -79,8 +87,11 @@ exports.deleteCompany=(req,res,next)=>
             res.json(doc);
         }
     });
-    
-}
+
+    User.remove(user);
+
+} 
+
 
 
 
