@@ -17,7 +17,7 @@ let userSchema=new Schema({
     state:{
          type:String,
          },
-         emailId:{
+    emailId:{
             type:String,
           }        
 });
